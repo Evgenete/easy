@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyGo - Общественный транспорт Иркутска</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-background text-foreground">
+    <header class="header-fixed" id="header">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="img/logo.svg" alt="EasyGo" class="logo">
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#features" class="font-medium nav-link">Возможности</a>
+                <a href="#tariffs" class="font-medium nav-link">Тарифы</a>
+                <a href="#reviews" class="font-medium nav-link">Преимущества</a>
+                <a href="#faq" class="font-medium nav-link">Помощь</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="login.php">
+                <button class="hidden md:block px-6 py-3 rounded-xl btn-outline font-medium">
+                    Войти
+                </button>
+            </a>
+                <button class="px-6 py-3 rounded-xl btn-primary text-white font-medium">
+                    Скачать приложение
+                </button>
+                <button class="lg:hidden text-2xl text-primary" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu fixed inset-0 bg-white z-50 lg:hidden" id="mobile-menu">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/logo.svg" alt="EasyGo" class="logo">
+                    </div>
+                    <button class="text-2xl text-primary" id="close-mobile-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <nav class="space-y-6">
+                    <a href="#features" class="block text-xl font-medium hover:text-primary transition-colors py-3 border-b border-gray-100">Возможности</a>
+                    <a href="#tariffs" class="block text-xl font-medium hover:text-primary transition-colors py-3 border-b border-gray-100">Тарифы</a>
+                    <a href="#reviews" class="block text-xl font-medium hover:text-primary transition-colors py-3 border-b border-gray-100">Отзывы</a>
+                    <a href="#faq" class="block text-xl font-medium hover:text-primary transition-colors py-3 border-b border-gray-100">Помощь</a>
+                </nav>
+                
+                <div class="mt-8 space-y-4">
+                    <button class="w-full px-6 py-3 rounded-xl btn-outline font-medium">
+                        Войти
+                    </button>
+                    <button class="w-full px-6 py-3 rounded-xl btn-primary text-white font-medium">
+                        Скачать приложение
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="pt-28 pb-20 gradient-bg overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 fade-in">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full hero-badge mb-6">
+                        <span class="text-sm font-medium">Транспорт Иркутска в одном приложении</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Весь общественный транспорт Иркутска 
+                        <span class="text-gradient">в одном приложении</span>
+                    </h1>
+                    
+                    <p class="text-xl text-muted-foreground mb-8 max-w-2xl">
+                        Планируйте маршруты по Иркутску, покупайте билеты, отслеживайте автобусы и троллейбусы в реальном времени. 
+                        EasyGo делает поездки по городу простыми и удобными.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <button class="px-8 py-4 rounded-xl btn-primary text-white font-medium text-lg">
+                            <i class="fas fa-download mr-2"></i>Скачать приложение
+                        </button>
+                        <button class="px-8 py-4 rounded-xl btn-outline font-medium text-lg">
+                            Узнать больше
+                        </button>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center space-x-8">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                            <span class="font-medium">50K+ иркутян используют</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                            <span class="font-medium">150+ маршрутов</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 flex justify-center relative">
+                    <div class="relative w-full max-w-lg">
+                        <div class="absolute -top-10 -right-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
+                        <div class="absolute -bottom-10 -left-10 w-16 h-16 bg-blue-400/10 rounded-full animate-float" style="animation-delay: 1s;"></div>
+                        
+                        <div class="bg-white rounded-3xl shadow-2xl p-8 animate-float relative z-10 border border-gray-100">
+                            <div class="flex justify-between items-center mb-8">
+                                <div class="text-sm text-muted-foreground font-medium">9:41</div>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <div class="flex space-x-6 mb-6">
+                                    <button class="text-primary font-semibold border-b-2 border-primary pb-1">Маршруты</button>
+                                    <button class="text-muted-foreground font-medium hover:text-primary transition-colors">Иркутск</button>
+                                </div>
+                                
+                                <div class="flex space-x-4 mb-6">
+                                    <div class="route-badge px-4 py-2 rounded-xl text-sm font-medium flex items-center">
+                                        <i class="fas fa-map-marker-alt mr-2"></i>Железнодорожный вокзал
+                                    </div>
+                                    <div class="route-badge px-4 py-2 rounded-xl text-sm font-medium flex items-center">
+                                        <i class="fas fa-flag mr-2"></i>130 квартал
+                                    </div>
+                                </div>
+                                
+                                <h3 class="font-semibold text-lg mb-6">Доступные маршруты</h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-primary/30 transition-colors">
+                                        <div class="flex justify-between mb-3">
+                                            <span class="font-semibold text-lg">18 минут</span>
+                                            <span class="font-semibold text-lg text-primary">30 ₽</span>
+                                        </div>
+                                        <div class="text-sm text-muted-foreground flex items-center">
+                                            <i class="fas fa-bus mr-2 text-blue-500"></i>Автобус 8 • Без пересадок
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-blue-400/30 transition-colors">
+                                        <div class="flex justify-between mb-3">
+                                            <span class="font-semibold text-lg">25 минут</span>
+                                            <span class="font-semibold text-lg text-blue-500">30 ₽</span>
+                                        </div>
+                                        <div class="text-sm text-muted-foreground flex items-center">
+                                            <i class="fas fa-bus mr-2 text-blue-400"></i>Троллейбус 7 • Без пересадок
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="success-badge rounded-xl p-4">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium">Оплата прошла</div>
+                                        <div class="text-2xl font-bold text-primary">30 ₽</div>
+                                    </div>
+                                    <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="blue-section text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stat-card-blue rounded-2xl p-8 text-center fade-in">
+                    <div class="text-4xl font-bold text-primary mb-3">50K+</div>
+                    <div class="text-muted-foreground font-medium">Иркутян используют</div>
+                </div>
+                <div class="stat-card-blue rounded-2xl p-8 text-center fade-in">
+                    <div class="text-4xl font-bold text-primary mb-3">150+</div>
+                    <div class="text-muted-foreground font-medium">Маршрутов</div>
+                </div>
+                <div class="stat-card-blue rounded-2xl p-8 text-center fade-in">
+                    <div class="text-4xl font-bold text-primary mb-3">24/7</div>
+                    <div class="text-muted-foreground font-medium">Поддержка</div>
+                </div>
+                <div class="stat-card-blue rounded-2xl p-8 text-center fade-in">
+                    <div class="text-4xl font-bold text-primary mb-3">4.7</div>
+                    <div class="text-muted-foreground font-medium">Рейтинг в App Store</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="features" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full section-badge mb-6">
+                    <span class="text-sm font-medium">ВОЗМОЖНОСТИ</span>
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Всё для комфортных поездок по Иркутску</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    EasyGo объединяет все функции, необходимые современному пассажиру в Иркутске. 
+                    От планирования маршрута до покупки билетов — всё в одном приложении.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 feature-icon rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Умное построение маршрутов по Иркутску</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">
+                        Находим оптимальный путь по Иркутску с учетом пробок, времени и стоимости. 
+                        Комбинируем автобусы, троллейбусы и маршрутки для максимально быстрой поездки.
+                    </p>
+                    <a href="#" class="learn-more font-medium">
+                        <span>Узнать больше</span>
+                        <i class="fas fa-arrow-right arrow ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 feature-icon rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Отслеживание транспорта Иркутска</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">
+                        Видите точное местоположение автобусов и троллейбусов Иркутска на карте. 
+                        Никаких ожиданий на остановках в непогоду.
+                    </p>
+                    <a href="#" class="learn-more font-medium">
+                        <span>Узнать больше</span>
+                        <i class="fas fa-arrow-right arrow ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 feature-icon rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-ticket-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Единый электронный билет Иркутска</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">
+                        Покупайте и храните билеты на все виды транспорта Иркутска в одном месте. 
+                        Оплата картой за секунды без очередей и бумажных билетов.
+                    </p>
+                    <a href="#" class="learn-more font-medium">
+                        <span>Узнать больше</span>
+                        <i class="fas fa-arrow-right arrow ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 feature-icon rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Уведомления о транспорте Иркутска</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">
+                        Получайте напоминания о поездках, изменениях маршрутов и задержках. 
+                        Всегда будьте в курсе актуальной информации об иркутском транспорте.
+                    </p>
+                    <a href="#" class="learn-more font-medium">
+                        <span>Узнать больше</span>
+                        <i class="fas fa-arrow-right arrow ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tariffs" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full section-badge mb-6">
+                    <span class="text-sm font-medium">ТАРИФЫ</span>
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Выберите подходящий план</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Начните с бесплатного тарифа или получите все возможности с премиум-подпиской. 
+                    Для студентов Иркутска — специальные условия.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="pricing-card rounded-2xl p-8 fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Базовый</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">Для редких поездок по Иркутску</p>
+                    
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">Бесплатно</span>
+                    </div>
+                    
+                    <ul class="space-y-5 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Построение маршрутов по Иркутску</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Расписание транспорта Иркутска</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Карта Иркутска</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Поиск остановок Иркутска</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 rounded-xl btn-outline font-medium text-lg">
+                        Выбрать план
+                    </button>
+                </div>
+                <div class="pricing-card-popular rounded-2xl p-8 relative fade-in">
+                    <div class="absolute top-0 right-0 popular-badge px-6 py-2 rounded-bl-2xl rounded-tr-2xl text-sm font-medium">
+                        Популярный
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-4">Премиум</h3>
+                    <p class="text-white/80 mb-6 text-lg">Для активных пассажиров Иркутска</p>
+                    
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">199 ₽</span>
+                        <span class="text-white/80 text-lg">/месяц</span>
+                    </div>
+                    
+                    <ul class="space-y-5 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Всё из тарифа "Базовый"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Отслеживание транспорта в реальном времени</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Уведомления о задержках</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Сохранение любимых маршрутов по Иркутску</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Статистика поездок</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 rounded-xl btn-white font-medium text-lg">
+                        Выбрать план
+                    </button>
+                </div>
+                <div class="pricing-card rounded-2xl p-8 fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Студенческий</h3>
+                    <p class="text-muted-foreground mb-6 text-lg">Для студентов Иркутска</p>
+                    
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">99 ₽</span>
+                        <span class="text-muted-foreground text-lg">/месяц</span>
+                    </div>
+                    
+                    <ul class="space-y-5 mb-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Всё из тарифа "Премиум"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Скидки на проезд</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Уведомления о студенческих акциях</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Маршруты до вузов Иркутска</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-4 text-lg"></i>
+                            <span class="text-lg">Специальные условия</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 rounded-xl btn-outline font-medium text-lg">
+                        Выбрать план
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="reviews" class="section-padding gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full section-badge mb-6">
+                    <span class="text-sm font-medium">ПРЕИМУЩЕСТВА</span>
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Почему иркутяне выбирают EasyGo</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Мы создали платформу, которой доверяют десятки тысяч иркутян каждый день. 
+                    Надежность, скорость и удобство — наши главные приоритеты.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center mb-20">
+                <div class="stat-card rounded-2xl p-8 fade-in">
+                    <div class="text-5xl font-bold text-primary mb-4">99.9%</div>
+                    <div class="text-muted-foreground text-lg font-medium">Надежность сервиса</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 fade-in">
+                    <div class="text-5xl font-bold text-primary mb-4">&lt;1с</div>
+                    <div class="text-muted-foreground text-lg font-medium">Скорость построения маршрута</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 fade-in">
+                    <div class="text-5xl font-bold text-primary mb-4">50K+</div>
+                    <div class="text-muted-foreground text-lg font-medium">Иркутян используют</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 fade-in">
+                    <div class="text-5xl font-bold text-primary mb-4">4.7</div>
+                    <div class="text-muted-foreground text-lg font-medium">Рейтинг в App Store</div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <h3 class="text-3xl font-bold mb-6">Присоединяйтесь к тысячам довольных иркутян</h3>
+                <div class="text-6xl font-bold text-gradient mb-10">+50,000 пользователей</div>
+                <button class="px-10 py-5 rounded-xl btn-primary text-white font-medium text-xl">
+                    <i class="fas fa-download mr-3"></i>Скачать приложение
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="section-padding bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full section-badge mb-6">
+                    <span class="text-sm font-medium">ПОМОЩЬ</span>
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Часто задаваемые вопросы</h2>
+                <p class="text-xl text-muted-foreground">Ответы на популярные вопросы о EasyGo в Иркутске</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Как начать пользоваться EasyGo в Иркутске?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>Чтобы начать пользоваться EasyGo в Иркутске, просто скачайте приложение из App Store или Google Play, зарегистрируйтесь с помощью номера телефона или электронной почты, и вы сразу сможете планировать маршруты по Иркутску и покупать билеты. Регистрация занимает менее минуты!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Какие виды транспорта Иркутска доступны в приложении?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>В EasyGo доступны все основные виды общественного транспорта Иркутска: автобусы, троллейбусы и маршрутные такси. Мы охватываем более 150 маршрутов по всему городу, включая пригородные направления.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Нужно ли платить за базовый функционал?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>Нет, базовый функционал приложения полностью бесплатен. Вы можете бесплатно планировать маршруты по Иркутску, просматривать расписание транспорта и пользоваться картой города. Платные функции доступны в премиум-тарифе и включают отслеживание транспорта в реальном времени, уведомления и расширенную статистику.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Как работает отслеживание транспорта Иркутска в реальном времени?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>Мы получаем данные о местоположении транспорта Иркутска напрямую от транспортных компаний и операторов. Эти данные обрабатываются и отображаются на карте в реальном времени, позволяя вам точно знать, где находится нужный вам автобус или троллейбус. Точность отслеживания составляет 95% и выше.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Можно ли купить билет на транспорт Иркутска через приложение?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>Да, в приложении EasyGo вы можете покупать билеты на все виды общественного транспорта Иркутска. Оплата осуществляется банковской картой, и билет сохраняется в электронном виде в приложении. При посадке в транспорт просто покажите QR-код контроллеру.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion bg-white border border-gray-200 rounded-2xl overflow-hidden fade-in">
+                    <button class="accordion-toggle w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                        <span class="font-semibold text-lg">Есть ли скидки для студентов Иркутска?</span>
+                        <i class="fas fa-chevron-down accordion-icon text-muted-foreground text-xl"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 pt-0 text-muted-foreground text-lg">
+                            <p>Да, для студентов иркутских вузов мы предлагаем специальный тариф за 99 рублей в месяц, который включает все премиум-функции плюс дополнительные скидки на проезд и специальные уведомления о студенческих акциях. Для активации тарифа потребуется подтверждение статуса студента.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center fade-in">
+                <div class="bg-blue-50 rounded-2xl p-12 border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-6">Не нашли ответ на свой вопрос?</h3>
+                    <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        Наша служба поддержки готова помочь вам 24/7. 
+                        Мы ответим на любой ваш вопрос об общественном транспорте Иркутска в течение 15 минут.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="mailto:support@easygo-irk.ru" class="px-8 py-4 rounded-xl btn-primary text-white font-medium text-lg">
+                            <i class="fas fa-envelope mr-3"></i>support@easygo-irk.ru
+                        </a>
+                        <a href="tel:88001234567" class="px-8 py-4 rounded-xl btn-outline font-medium text-lg">
+                            <i class="fas fa-phone mr-3"></i>8 800 123-45-67
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <!-- Логотип в футере -->
+                    <img src="img/logo.svg" alt="EasyGo" class="footer-logo mb-6">
+                    <p class="text-gray-400 text-lg max-w-md mb-6">
+                        Единая платформа для пассажиров общественного транспорта Иркутска. 
+                        Умные маршруты, быстрая оплата, комфортные поездки по городу.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-apple text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-google-play text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Система</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Возможности</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Тарифы</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Отзывы</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Помощь</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Скачать приложение</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Компания</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">О нас</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Блог</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Карьера</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Партнерам</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-lg">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-lg mb-4 md:mb-0">&copy; 2025 EasyGo Иркутск. Все права защищены.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">Политика конфиденциальности</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
