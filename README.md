@@ -30,5 +30,6 @@ EASYGO - это веб-приложение для управления поль
 
 1. **Клонирование репозитория**
    ```bash
+   дддддддд
    git clone https://github.com/ваш-username/EASYGO.git
    cd EASYGO
